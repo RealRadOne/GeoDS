@@ -4,18 +4,54 @@
     <meta charset="UTF-8">
     <title>Element Concentrations</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .dashboard-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .sidebar {
+            width: 200px;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto;
+            height: 90vh;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .chart-container {
+            width: 850px;
+            height: 850px;
+        }
+        .form-container {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="chart-container">
-        <h1>Element Concentrations</h1>
-        <div id="plot"></div> <!-- Changed id to "plot" -->
+    <div class="dashboard-container">
+        <header>
+            <h1>Element Concentrations</h1>
+        </header>
+        
+        <nav class="sidebar">
+            <div class="form-container">
+                <button onclick="plotSelectedElements()">Plot Selected Elements</button>
+            </div>
+            <ul id="element-list">
+                <!-- Dynamically populated element checkboxes will be inserted here -->
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div id="plot-container" class="chart-container"></div>
+        </main>
     </div>
-    <!-- Include Plotly.js library -->
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script type="module" src="{{ url_for('static', filename='mdscatter.js') }}"></script>
     <script type="module" src="{{ url_for('static', filename='app.js') }}"></script>
-    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-surface.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-data-adapter.min.js"></script>
+    <script type="module" src="{{ url_for('static', filename='clusterplot.js') }}"></script>
 </body>
 </html>

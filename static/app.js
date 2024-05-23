@@ -1,5 +1,5 @@
 // Import necessary functions and modules
-import { clusterplot } from './mdscatter.js';
+import { clusterplot } from './clusterplot.js';
 
 
 document.addEventListener("DOMContentLoaded", function () {
