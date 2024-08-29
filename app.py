@@ -5,7 +5,7 @@ from flask import Flask, jsonify, render_template
 
 app = Flask(__name__, static_url_path='/static')
 
-DATA_FILE_PATH = "/home/radone/Timesheets/Map_Data.csv"
+DATA_FILE_PATH = "Map_Data.csv"
 
 def preprocess(DATA_FILE_PATH):
     df = pd.read_csv(DATA_FILE_PATH)
