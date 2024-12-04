@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spectra Plot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .chart-container {
+            width: 850px;
+            height: 850px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spectra Plot</h1>
+    </header>
+    
+    <main class="content">
+        <div id="plot-container" class="chart-container"></div>
+    </main>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="module" src="{{ url_for('static', filename='app.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='spectraplot.js') }}"></script>
+</body>
+</html>

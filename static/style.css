@@ -1,59 +1,98 @@
-/* Inside style.css */
 body {
     margin: 0;
-    font-family: Arial, sans-serif; /* Example font change */
+    font-family: Arial, sans-serif;
 }
 
 .dashboard-container {
-    display: grid;
-    grid-template-columns: 200px auto; /* Sidebar takes 200px, content takes the rest */
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "header header"
-        "sidebar content";
+    display: flex;
+    flex-direction: column;
     height: 100vh;
 }
 
 header {
-    grid-area: header;
-    background-color: #333;
+    background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
 }
 
 .sidebar {
-    grid-area: sidebar;
+    width: 250px;
     background-color: #f4f4f4;
-    border-right: 1px solid #ccc;
-    padding-top: 20px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li button {
-    width: 160px;
+    border-right: 1px solid #ddd;
     padding: 10px;
-    background-color: #ddd;
-    border: none;
-    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .content {
-    grid-area: content;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
 .chart-container {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    width: 100%;
+    height: 100%;
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-bar button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Style for the loading container */
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Initially hidden */
+    z-index: 9999; /* Ensure it overlays all other content */
+}
+
+/* Spinner animation */
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey border */
+    border-top: 8px solid #3498db; /* Blue border on top */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Infinite spinning animation */
+}
+
+/* Spinner animation keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
